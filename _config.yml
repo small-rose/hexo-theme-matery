@@ -417,6 +417,7 @@ valine:
 # The configuration of the MiniValine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
 # MiniValine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+# See: https://github.com/MiniValine/MiniValine
 minivaline:
   enable: false
   appId:  iTxfqh5e9IaRfiiVOTbIWoKa-9Nh9j0Va # Your leancloud application appid
