@@ -1,3 +1,4 @@
+index: 首页
 posts: 文章
 category: 分类
 categories: 分类
@@ -5,8 +6,17 @@ tag: 标签
 tags: 标签
 archives: 归档
 about: 关于
-contact: 留言板
+contact: 留言簿
 friends: 友情链接
+navigate: 导航
+ArtiTalk: 语
+Navigation: 风域之门
+Siteboxing: 妖魔化镜
+Writinging: 阿蓝故事
+SmallCloud: 云上之城
+ColorWorld: 红飞翠舞
+SiteStatus: 沧海成渊
+tool: 工具箱
 startRead: 开始阅读
 recommendedPosts: 推荐文章
 publishDate: 发布日期

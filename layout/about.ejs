@@ -41,8 +41,14 @@
                     </div>
                 </div>
 
+
                 <div class="introduction center-align" data-aos="fade-up"><%= theme.profile.introduction %></div>
 
+
+                <% if (theme.mytalk && theme.mytalk.enable) { %>
+                <%- partial('_widget/my-talk') %>
+                <% } %>
+                
                 <%- partial('_widget/post-charts') %>
 
                 <% if (theme.myProjects && theme.myProjects.enable) { %>
@@ -53,11 +59,20 @@
                 <%- partial('_widget/my-skills') %>
                 <% } %>
 
+
                 <% if (theme.myGallery && theme.myGallery.enable) { %>
                 <%- partial('_widget/my-gallery') %>
                 <% } %>
 
+
+
+                
             </div>
         </div>
     </div>
+
 </main>
+
+<% if (theme.live2d.enable) { %>
+<%- partial('_partial/live2d') %>
+<% } %>

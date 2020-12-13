@@ -9,6 +9,7 @@
             <a href="<%- url_for('/about') %>" target="_blank"><%- config.author %></a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Comments&nbsp;<a href="https://valine.zhangxiaocia.cn" target="_blank">Valine</a>
             <br>
             <% if (theme.postInfo.totalCount) { %>
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
@@ -65,11 +66,11 @@
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                        document.getElementById("sitetime").innerHTML = "本站已 <del>安全</del> 苟全运行 " + diffYears + " 年 " + diffDays +
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }
                 }
@@ -77,14 +78,27 @@
             </script>
             <% } %>
             <br>
+            
             <% if (theme.icp.enable) { %>
             <span id="icp"><img src="<%- theme.jsDelivr.url %><%- url_for('/medias/icp.png') %>" style="vertical-align: text-bottom;" />
                 <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%= theme.icp.text %></a>
-            </span>
+            </span> <br/>
             <% } %>
         </div>
         <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
+
+        <% if (theme.travellings && theme.travellings.enable) { %>
+            <br/><br/>
+        <center><a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.netlify.app/assets/logo.gif" alt="开往下一站" width="120"></a></center>
+            <!-- medias/travellings_1.png -->
+        <% } %>
+       
     </div>
+   
 </footer>
 
 <div class="progress-bar"></div>
+
+ 
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf3c468c-2fd7-4dcc-866d-3b008127fff0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>

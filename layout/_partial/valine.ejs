@@ -232,6 +232,29 @@
         left: unset;
         visibility: visible;
     }
+
+    #vcomments .vbtn{
+        
+        background-color: #0bb7fbd6;
+        color: #fff;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .v[data-class=v] .vwrap .vemojis i {
+         font-style:normal;
+         padding-top:7px;
+         width:36px;
+         cursor:pointer;
+         text-align:center;
+         display:inline-block;
+         vertical-align:middle;
+         padding-right: 3px;
+         padding-left: 3px;
+    }
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
@@ -242,12 +265,19 @@
     <div id="vcomments" class="card-content" style="display: grid">
     </div>
 </div>
-
+<!--
+折腾人啊,如果你看到这个说明你也在搞Valine 哈哈~ 慢慢折腾吧，本站有教程哦
+-->
 <script src="<%- theme.jsDelivr.url %><%- url_for('/libs/valine/av-min.js') %>"></script>
 <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.valine) %>"></script>
 <script>
+    
+ 
+    let metaPlaceholder = <%-  JSON.stringify(theme.valine.metaPlaceholder) %>
+
     new Valine({
         el: '#vcomments',
+        mode: 'xCss',
         appId: '<%- theme.valine.appId %>',
         appKey: '<%- theme.valine.appKey %>',
         notify: '<%- theme.valine.notify %>' === 'true',
@@ -255,7 +285,37 @@
         visitor: '<%- theme.valine.visitor %>' === 'true',
         avatar: '<%- theme.valine.avatar %>',
         pageSize: '<%- theme.valine.pageSize %>',
-        lang: '<% if (config.language == "zh-CN") {  %>zh-cn<% } else { %>en<% } %>',
-        placeholder: '<%= theme.valine.placeholder %>'
+        lang: '<%- theme.valine.lang %>',
+        placeholder: '<%= theme.valine.placeholder %>',
+        meta: <%- '["' + theme.valine.guest_info.join('", "') + '"]' %>,
+        recordIP: '<%- theme.valine.recordIP %>' === 'true',
+        enableQQ: '<%- theme.valine.avatar %>',
+        requiredFields: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+        master: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+        friends: <%- '["' + theme.valine.friends.join('", "') + '"]' %>,
+        tagMeta: <%- '["' + theme.valine.tagMeta.join('", "') + '"]' %>,
+        metaPlaceholder: metaPlaceholder,
+
     });
+
+    document.body.addEventListener('click', function(e) {
+    if (e.target.classList.contains('vsubmit')) {
+        const email = document.querySelector('input[type=email]');
+        const nick = document.querySelector('input[name=nick]');
+        const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        if (!email.value || !nick.value || !reg.test(email.value)) {
+            const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+            const vmark = document.querySelector('.vmark');
+            vmark.innerHTML = str;
+            vmark.style.display = 'block';
+
+            e.stopPropagation();
+
+            setTimeout(function() {
+                vmark.style.display = 'none';
+                vmark.innerHTML = '';
+            }, 2500);
+        }
+    }
+    }, true);
 </script>

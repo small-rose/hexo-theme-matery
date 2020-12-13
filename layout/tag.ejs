@@ -79,3 +79,7 @@
 <% if (page.total > 1) { %>
 <%- partial('_partial/paging') %>
 <% } %>
+
+<% if (theme.live2d.enable) { %>
+<%- partial('_partial/live2d') %>
+<% } %>

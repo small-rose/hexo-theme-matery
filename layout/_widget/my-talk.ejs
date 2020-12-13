@@ -1,0 +1,41 @@
+
+<link href="https://cdn.bootcss.com/botui/0.3.9/botui-theme-default.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/botui/0.3.9/botui.min.css" rel="stylesheet">
+
+<style>
+#myTalk{
+    margin-top: 30px;
+
+}
+</style>
+<div id="myTalk" class="container  other-skills chip-container" data-aos="zoom-in-up"">
+
+    <!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
+    <div class="entry-content">
+     <!--
+        <div class="sub-title center-align"><i class="fa fa-message"></i>&nbsp;&nbsp;张小菜苔</div>
+       
+      <div class="moe-cungudafa" style="text-align:center; font-size: 30px; margin-bottom: 20px;">张小菜苔</div>
+      -->
+      <div id="hello-xiaocai" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgb(36, 200, 255); border-radius: 10px;">
+        <center>
+        <h4>
+        与&nbsp;<ruby>
+        小菜苔 &nbsp;<rp>
+        </rp>
+        </ruby>
+        对话中...</h4>
+        <p>
+        </p>
+        </center>
+        <bot-ui></botui>
+      </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.botui) %>"></script>
+<script>
+ bot_ui_ini()
+</script>

@@ -1,0 +1,94 @@
+<%- partial('_partial/bg-cover') %>
+
+<style type="text/css">
+.clearfix { *zoom: 1;}
+.clearfix:before,.clearfix:after {display: table; line-height: 0;	}
+.clearfix:after { clear: both;}
+#color_man a img{border:0 none}
+#color_man a{ text-decoration:none} 
+#color_man h1 {font-weight: bold;font-size: 3em;text-align: center;color: #F5F5F5;	letter-spacing: 0.1em; margin-bottom:-10px;background:#fff; padding:0px	}
+#color_man h1 span{ display:block;letter-spacing: 0em; font-weight: 100;font-size: 0.5em; color:#666}
+
+#color_man ul{width:20%; float:left; text-align:center;}
+#color_man ul,li{margin:0; padding:0; }
+
+
+
+#color_man ul li,.menu li{display: block; padding:20px; margin:8px 5px; border-radius:3px; }
+#color_man #tester{ padding:20px; margin: 25px 0 0 80px; display:none; position:absolute; font-size:12px;}
+#color_man ul li a span{display: block; font-size:14px; cursor: pointer;}
+#color_man .container{max-width:80%; _width:80%; margin:30px auto 10px; padding:0;}
+#color_man > .white_xiaocai{color:#fff ;}
+#color_man > .black_xiaocai{color:#333; }       	
+ 
+#color_man .menu{ width:980px; height:40px;  margin:0 auto; float:none; text-align:center;}
+#color_man .menu li{ margin-right:50px; padding:10px 0px  30px 0px; float:left;}
+#color_man .menu li a:link,.menu li a:visited{ color: #CCC; text-decoration:none;}
+#color_man .menu li a:hover{ color: #0F3;}
+#color_man  li#psfa a:link,li#psfa a:visited{color:#0C9;}	
+			
+@media screen and (max-width:600px) {
+	html,body{ overflow-x: hidden; }
+		#color_man h1{  font-size: 2em; letter-spacing: normal }
+		#color_man ul li{ width:50px; padding:6px;}	
+		#color_man .container{max-width:99%; _width:99%;}
+		#color_man .container li a{ font-size:12px;}
+		#color_man ul li a span{ font-size:12px; }
+	#color_man #adsby , .weblink{ display:none !important;}	
+	#color_man  .btn { display: none}			
+	#color_man >li > span {display: none;}
+}				
+</style>
+
+<script src="/js/color_js_clipboard.min.js"></script>
+
+<main class="content ">
+    <div id="contact" class="container chip-container">
+        <div id="color_man"  class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-asterisk"></i>&nbsp;
+
+                    <% if (theme.titleName && theme.titleName.enable) { %>
+					     <span> <%= theme.titleName.color  %> </span>
+					<% } else { %>
+					    色彩
+					<% } %>
+                </div>
+           		<%- page.content %>
+            </div>
+
+        </div>
+        <div class="card">
+			 
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+    //实例化Clipboard对象并把复制按钮的类.btn传进去
+    var clipboard = new Clipboard('.btn');
+    clipboard.on('success', function(e) {
+    	console.info('Action:', e.action);
+        console.info('Text:', e.text);
+      	console.info('Trigger:', e.trigger);
+     	e.clearSelection();
+        alert('恭喜，颜色值复制成功 !');
+    });
+ 
+    clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+            alert('复制失败,请手动复制');
+    });
+</script>
+<% if (theme.banner.enable) { %>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+<% } else { %>
+<script>
+    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/0.jpg') %>)');
+</script>
+<% } %> 

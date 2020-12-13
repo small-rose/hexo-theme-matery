@@ -2,7 +2,23 @@
 <html lang="<%= config.language %>">
 <%- partial('_partial/head') %>
 
+ <% if (theme.loadingPages.enable) { %>
+    <%- partial('_partial/loading-pages') %>
+ <% } %>
 <body>
+    <% if (theme.loadingPages.enable) { %>
+        <div id="loading-container">
+             <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    <% } %>
+
     <%- partial('_partial/header') %>
     <%- body %>
 
@@ -17,6 +33,7 @@
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.scrollProgress) %>"></script>
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.lightgallery) %>"></script>
     <script src="<%- theme.jsDelivr.url %><%- url_for('/js/matery.js') %>"></script>
+
 
     <%- partial('_partial/baidu-analytics') %>
     <%- partial('_partial/baidu-push') %>
@@ -99,6 +116,22 @@
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.instantpage) %>" type="module"></script>
     <% } %>
 
+    <% if (theme.funnyTitle.enable) { %>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.funnyTitle) %>" type="module"></script>
+    <% } %>
+ 
+    <% if (theme.sakura.enable) { %>
+    <script src="<%- url_for(theme.libs.js.sakura) %>" type="module"></script>
+    <% } %>
+
+    <% if (theme.xuehua.enable) { %>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.xuehua) %>" type="module"></script>
+    <% } %>
+
+     <% if (theme.fullscreen.enable) { %>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.fullscreen) %>" type="module"></script>
+    <% } %>
+ 
 </body>
 
 </html>

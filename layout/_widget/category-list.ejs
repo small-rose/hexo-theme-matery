@@ -1,0 +1,294 @@
+<% var orderBy =  'name' ;  %>
+<style>
+
+/*
+.category:not(:last-child) {
+  margin-bottom: 1rem;
+}
+*/
+.category-item {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.category-subitem {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.category-collapse {
+  margin-left: 1.25rem;
+  width: 100%;
+}
+.category-count {
+  font-size: 0.9rem;
+  font-weight: initial;
+  min-width: 1.3em;
+  line-height: 1.3em;
+  display: flex;
+  align-items: center;
+}
+.category-count i {
+  padding-right: 0.25rem;
+}
+.category-count span {
+  width: 2rem;
+}
+.category-item-action:not(.collapsed) > i {
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+.category-item-action i {
+  transition: transform 0.3s ease-out;
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+.category-item-action:hover {
+  z-index: 1;
+  color: #38ACDF;
+  text-decoration: none;
+  background-color: #F8F9FA;
+}
+
+ 
+
+.list-group-item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.category-item {
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+.list-group-item {
+    background-color: transparent;
+    
+    border: 0;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    
+    /* border: 1px solid rgba(0,0,0,.125); */
+}
+
+/* zzy add */
+/*
+#card-list-zzy .collapsible-header{
+  background-color: rgb(204, 232, 207); 
+}
+*/
+#card-list-zzy .category-row li:hover {
+    color: #38ACDF;
+    background-color: #F8F9FA;
+    background-color: rgb(204, 232, 207); /* zzy add */
+    /*  border: 1px solid rgba(0,0,0,.125); */
+    .list-group-item{
+        background-color: rgb(204, 232, 207); /* zzy add */
+    }
+}
+    
+
+#card-list-zzy .list-group-item-action:hover {
+    color: #38ACDF;
+    background-color: #F8F9FA;
+
+    /*  border: 1px solid rgba(0,0,0,.125); */
+}
+
+.category-item-action i {
+    transition: transform .3s ease-out;
+    display: inline-block;
+    margin-left: .25rem;
+}
+
+.category-item-action a{
+      display: block;
+      padding: .75rem 1.25rem;
+}
+
+card-categories-list-spcail > div:hover{
+  
+  color:#38ACDF;
+  background-color: #F8F9FA;
+  
+}
+
+.fa {
+    font-size: 1rem;
+    line-height: 1;
+}
+.category-count {
+    font-size: .9rem;
+    font-weight: initial;
+    min-width: 1.3em;
+    line-height: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+
+.category-content{
+   border-left:0px;
+   padding: .75rem 1.25rem;
+}
+
+.category-content a{
+    color: black;
+}
+
+.category-content a:hover{
+    color:#38ACDF;
+    background-color: #F8F9FA;
+    box-shadow:none;
+ }
+.category-row {
+  
+  border-color: #F8F9FA;;
+  border-bottom:none;
+  box-shadow: none;
+}
+
+#card-list-zzy{
+    position: relative;
+    /* margin-top: -2rem; */
+    transition: background-color .2s ease-in-out;
+    border-radius: .5rem;
+    z-index: 3;
+}
+.collapsible-header{
+  
+    boder: none;
+}
+
+.collapsible{
+  box-shadow:none !important;
+  -webkit-box-shadow: none !important;
+  border-left:none !important;
+  border-right:none !important;
+  border-bottom:none !important;
+}
+
+.categories-title{
+    padding-top: 20px;
+    /* padding-bottom: 5px; */
+    margin-bottom: -10px;
+}
+</style>
+
+  <% function render_categories(cats, depth) { %>
+  <% depth = depth || 0 %>
+
+  <% return cats.each(function(cat){ %>
+    <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
+    <% var collapsed = subCats.length === 0 %>
+
+    <li  class="<%= subCats.length > 0 ? 'active' : '' %>" >
+    <div class="<%= depth <= 0 ? 'category-row' : 'category-row category-sub' %>  row collapsible-header">
+      <a
+        class=" <%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= subCats.length > 0 ? '' : 'collapsed' %> list-group-item category-item-action col s11 m11"
+        id="heading-<%= cat._id %>" 
+      >
+        <%= cat.name %>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="<%= url_for(cat.path) %>" class="category-count col s1 m1">
+        <i class="fa fa-list"></i>
+        <span><%= cat.posts.length %></span>
+      </a>
+      
+    </div>
+    
+        <% if (subCats.length > 0) { %>
+      <div class="category-content collapsible-body">
+          <%- render_sub_categories(subCats, cat, depth + 1) %>
+
+       </div>
+
+        <% } else { %>
+          <%- render_posts(cat) %>
+        <% } %>
+     
+    </li>
+  <% }) %>
+<% } %>
+
+<% function render_sub_categories(cats, parent, depth) { %>
+
+ 
+        <ul class="collapsible expandable category-row"  data-collapsible="expandable">
+            <%- render_categories(cats, depth) %>
+         </ul>
+ 
+  
+<% } %>
+
+<% function render_posts(cat) { %>
+  <div id="collapse-<%= cat._id %>" class="category-content collapsible-body" >
+    <% var limit = theme.category.list || 10 ; %>
+    <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+    <% for (var idx = 0; idx < posts.length; idx++) { %>
+      <% var post = posts.data[idx] %>
+      <% if (idx && limit && idx >= limit) { %>
+        <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        <% break %>
+      <% } else { %>
+        <a href="<%- url_for(post.path) %>" class=" list-group-item list-group-item-action">
+          <span class="category-post"><%= post.title %></span>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+<% } %>
+
+
+<div class="container" data-aos="fade-up">
+    <div class="card  card-categories-list-spcail">
+        <div class="categories-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章多级分类
+        </div>
+
+        <div class="card-content col s12  m12">
+			   <div  id="card-list-zzy" class="container ">
+				<ul class="category-list collapsible expandable"  data-collapsible="expandable">
+				  <% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat => cat.length) %>
+				  <%- render_categories(cats) %>
+				</ul>
+			 </div>
+		</div>
+</div>   
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script>
+ 
+
+$('.list-group-item').click(function(){
+    
+  if($(this).hasClass('collapsed') ){
+      $(this).removeClass('collapsed');
+
+      //$(this).parent().next().slideDown();
+  }else{
+      $(this).addClass('collapsed');
+      //$(this).parent().next().slideUp();
+
+  }
+
+});
+ 
+ 
+var elem = document.querySelector('.collapsible .expandable');
+var instance = M.Collapsible.init(elem, {
+  accordion: false
+});
+                       
+</script>

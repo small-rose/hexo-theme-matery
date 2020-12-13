@@ -10,10 +10,24 @@
                 <%- page.content %>
             </div>
         </div>
+
         <div class="card">
-            <% if (theme.gitalk && theme.gitalk.enable) { %>
-            <%- partial('_partial/gitalk') %>
+
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
             <% } %>
+
+
+            <% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+            
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            
+            <% } %>
+            <%- partial('_partial/gitalk') %>
+
 
             <% if (theme.gitment.enable) { %>
             <%- partial('_partial/gitment') %>
@@ -27,13 +41,13 @@
             <%- partial('_partial/livere') %>
             <% } %>
 
-            <% if (theme.valine && theme.valine.enable) { %>
-            <%- partial('_partial/valine') %>
-            <% } %>
+           
 			
-			<% if (theme.minivaline && theme.minivaline.enable) { %>
-            <%- partial('_partial/minivaline') %>
-            <% } %>
         </div>
     </div>
+
 </main>
+
+ <% if (theme.live2d.enable) { %>
+<%- partial('_partial/live2d') %>
+<% } %>

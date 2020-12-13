@@ -39,7 +39,16 @@
                     <%- date(page.date, 'YYYY-MM-DD') %>
                 </div>
                 <% } %>
+                <!--添加作者信息--> 
+                <div class="info-break-policy"> 
+                <% if (page.author && page.author.length > 0) { %> 
+                    <i class="fa fa-pencil"></i> 作者: <%- page.author %> 
+                <% } else { %> 
+                    <i class="fa fa-pencil"></i> 作者: <%- config.author %>
+                 <% } %> 
+                 </div> 
 
+                     
                 <% if (theme.postInfo.update) { %>
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i><%- __('updateDate') %>:&nbsp;&nbsp;
@@ -74,6 +83,7 @@
             <div id="articleContent">
                 <%- page.content %>
             </div>
+            <br/>
             <hr/>
 
             <%- partial('_partial/reprint-statement') %>
@@ -104,8 +114,12 @@
         </div>
     </div>
 
-    <% if (theme.gitalk && theme.gitalk.enable) { %>
-        <%- partial('_partial/gitalk') %>
+    <% if (theme.valine && theme.valine.enable) { %>
+        <%- partial('_partial/valine') %>
+    <% } %>
+
+    <% if (theme.gitalk && theme.gitalk.post) { %>
+         <%- partial('_partial/gitalk') %>
     <% } %>
 
     <% if (theme.gitment.enable) { %>
@@ -120,9 +134,7 @@
     <%- partial('_partial/livere') %>
     <% } %>
 
-    <% if (theme.valine && theme.valine.enable) { %>
-        <%- partial('_partial/valine') %>
-    <% } %>
+    
 
     <% if (theme.minivaline && theme.minivaline.enable) { %>
         <%- partial('_partial/minivaline') %>
@@ -155,8 +167,10 @@
         // otherwise the text inside "pre" loses all the line breaks!
         if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
             newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }else{
+            //注释掉上面的if，将if中的内容释放出来
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
         }
-
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '<%- __("from")  %>: <%= config.title %><br />'
@@ -194,3 +208,4 @@
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 <% } %>
+ 

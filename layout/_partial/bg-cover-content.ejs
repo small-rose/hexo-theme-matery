@@ -15,7 +15,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['<%= theme.subtitle.sub1 %>','<%= theme.subtitle.sub2 %>'],
+                        strings: ['<%= theme.subtitle.sub1 %>','<%= theme.subtitle.sub2 %>','<%= theme.subtitle.sub3 %>'],
                         startDelay: <%= theme.subtitle.startDelay %>,
                         typeSpeed: <%= theme.subtitle.typeSpeed %>,
                         loop: <%= theme.subtitle.loop %>,
@@ -34,10 +34,11 @@
 <% if (theme.banner.enable) { %>
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/' + new Date().getDay() + '.jpg') %>)');
+    var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 <% } else { %>
 <script>
-    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/0.jpg') %>)');
+    $('.bg-cover').css('background-image', 'url(<%- theme.jsDelivr.url %><%- url_for('/medias/banner/8.jpg') %>)');
 </script>
 <% } %>

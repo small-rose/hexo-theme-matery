@@ -1,2 +1,6 @@
 .DS_Store
 .idea
+
+source/images/*
+
+source/medias/photos/*

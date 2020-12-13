@@ -2,10 +2,21 @@
 
 <main class="content">
 
+
     <%- partial('_widget/category-cloud') %>
 
+ 
+	<%- partial('_widget/category-list') %>
+
+	<%- partial('_widget/category-mindmap') %>
+    
+    
     <% if (site.categories && site.categories.length > 0) { %>
     <%- partial('_widget/category-radar') %>
     <% } %>
-
+    
 </main>
+
+<% if (theme.live2d.enable) { %>
+<%- partial('_partial/live2d') %>
+<% } %>

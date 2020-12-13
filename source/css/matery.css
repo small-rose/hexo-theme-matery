@@ -1,8 +1,41 @@
-/*全局基础样式*/
+ /*全局基础样式*/
+/*特小屏幕下(手机类)的样式*/
+@media only screen and (max-width: 380px) {
+    .container {
+        width: 95%;
+    }
+     header .brand-logo .logo-span {
+            font-size: 0.4rem;
+    }
+    .bg-cover .title {
+        font-size: 1rem;
+    }
+    header .brand-logo .logo-img {
+         height: 40px;
+    }
+    .fullscreen{
+        display: none;
+    }
+}
+
+
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
+    }
+     header .brand-logo .logo-span {
+            font-size: 1rem;
+    }
+    .bg-cover .title {
+        font-size: 2rem;
+    }
+    header .brand-logo .logo-img {
+         height: 40px;
+    }
+
+    .fullscreen{
+        display: none;
     }
 }
 
@@ -10,6 +43,18 @@
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
         width: 90%;
+    }
+    header .brand-logo .logo-span {
+            font-size: 1.2rem;
+    }
+    .bg-cover .title {
+        font-size: 2.5rem;
+    }
+    header .brand-logo .logo-img {
+         height: 40px;
+    }
+    .fullscreen{
+        display: none;
     }
 }
 
@@ -34,9 +79,16 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background-color: background-color: rgb(204, 232, 207); /*#eaeaea;*/
+    
+    background: linear-gradient(60deg, rgba(224,255,125, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url(" "), url("https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/medias/qiang_bg.gif") 0px 0px;
+    background-attachment: fixed;
+
     margin: 0;
     color: #34495e;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 h1 {
@@ -253,6 +305,8 @@ mark {
 .card {
     border-radius: 10px;
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
+    /* background-color: rgba(0,0,0, 0.3) !important; */
+    /* background-color: rgb(204, 232, 207);  zzy add  护眼色*/
 }
 
 .card .card-image img {
@@ -266,7 +320,14 @@ mark {
 }
 
 .bg-color {
+    /*  原始绿色
     background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    */
+   /* 天空蓝*/
+    background-image: linear-gradient(to right,#0bb7fbd6 0,#0e91d0 100%) ;
+    /* !important;*/
+    -ms-background-color: #0e91d0;
+
 }
 
 .text-color {
@@ -282,7 +343,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right,#0bb7fbd6 0,#0e91d0 100%);
     opacity: 0.8;
 }
 
@@ -322,6 +383,11 @@ header .brand-logo .logo-img {
 
 header .brand-logo .logo-span {
     font-size: 2rem;
+}
+
+header .logo-span{
+    font-family: -apple-system,hl,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: normal;
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -620,7 +686,7 @@ header .go-back i {
 }
 
 @-webkit-keyframes rainbow {
-
+    /*
     0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
@@ -663,10 +729,11 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
+    */
 }
 
 @keyframes rainbow {
-
+    /*
     0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
@@ -709,6 +776,7 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
+    */
 }
 
 .index-card {
@@ -1102,7 +1170,7 @@ article .article-tags .chip {
 
 #artDetail .post-cate a {
     padding-right: 5px;
-    color: #42b983;
+    color: red;
     font-weight: 500;
 }
 
@@ -1200,7 +1268,7 @@ article .article-tags .chip {
 
 #articleContent a {
     padding: 0 2px;
-    color: #42b983;
+    color: red;
     font-weight: 500;
     text-decoration: underline;
     word-wrap: break-word;
@@ -1245,12 +1313,22 @@ article .article-tags .chip {
     list-style-type: circle;
 }
 
+#articleContent table {
+    width: 100%;
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    overflow: auto;
+}
+
+/* zzy
 #articleContent table,
 th,
 td {
     padding: 12px 13px;
     border: 1px solid #dfe2e5;
 }
+*/
 
 table tr:nth-child(2n),
 thead {
@@ -1260,10 +1338,18 @@ thead {
 #articleContent table th {
     background-color: #f2f2f2;
     min-width: 80px;
+      /* zzy add */
+    border: 1px solid #dfe2e5;
+    padding: 6px 6px;
+    
 }
 
 #articleContent table td {
     min-width: 80px;
+    /* zzy add */
+    border: 1px solid #dfe2e5;
+    padding: 6px 6px;
+
 }
 
 #articleContent [type="checkbox"]:not(:checked),
@@ -1310,7 +1396,7 @@ thead {
 
 .chip-container .chip-active {
     color: #FFF !important;
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%) !important;
+    background: linear-gradient(to right,#0bb7fbd6 0,#0e91d0 100%) !important;
     box-shadow: 2px 5px 10px #aaa !important;
 }
 
@@ -1329,7 +1415,7 @@ thead {
 
 .chip-container .chip:hover {
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
+    background: linear-gradient(to right,#0bb7fbd6 0,#0e91d0 100%) !important;
 }
 
 .chip .tag-length {
@@ -1620,7 +1706,7 @@ thead {
 }
 
 .post-statis .statis .count a {
-    color: #42b983;
+    color: #0bb7fbd6;
 }
 
 .post-statis .statis .name {
@@ -1641,8 +1727,8 @@ thead {
     margin: 0 0.5rem;
     padding: 0;
     color: #fff;
-    border: 1px solid #0f9d58;
-    background: radial-gradient(#4cbf30, #0f9d58);
+    border: 1px solid #0bb7fbd6;
+    background: radial-gradient(#0bb7fbd6,#0e91d0);
     font-size: 0.9rem;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .21), 0 2px 3px rgba(0, 0, 0, .1);
@@ -1907,8 +1993,13 @@ footer .copy-right {
 .top-scroll {
     display: none;
     position: fixed;
+    /* zzy
     right: 15px;
     bottom: 15px;
+*/
+    right: 32px;
+    bottom: 95px;
+
     padding-top: 15px;
     margin-bottom: 0;
     z-index: 998;

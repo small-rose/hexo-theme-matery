@@ -63,6 +63,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta name="keywords" content="<%= keyWords %>">
     <meta name="description" content="<%= config.description %>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,8 +82,27 @@
     <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.aos) %>">
     <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.animate) %>">
     <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.lightgallery) %>">
+
+    <% if (theme.artitalk && theme.artitalk.enable) { %>
+
+    <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.artitalk) %>">
+
+    <% } else { %> 
+
+    <script type="text/javascript" src="/libs/artitalk/artitalk.min.css"></script>
+
+    <% }  %> 
+
+
+
     <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/matery.css') %>">
     <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/my.css') %>">
+
+ 
+    <% if (theme.live2d && theme.live2d.enable) { %>
+           <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/js/live2d_assets/waifu.css') %>">
+    <% } %>
+    
 
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
 

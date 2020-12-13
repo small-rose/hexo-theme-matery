@@ -19,9 +19,41 @@ menu:
   Contact:
     url: /contact
     icon: fas fa-comments
+  ArtiTalk:
+    url: /artitalk
+    icon: fas fa-heartbeat
   Friends:
     url: /friends
     icon: fas fa-address-book
+ # Color:
+ #   url: /color
+ #   icon: fas fa-asterisk
+  #Navigate:
+  #  url: /navigate
+  #  icon: fas fa-location-arrow
+  Secret:
+    icon: fas fa-list
+    children:
+      - name: Navigation
+        url: /navigate
+        icon: fas fa-location-arrow
+      - name: Siteboxing
+        url: /box
+        icon: fas fa-map-marker
+      - name: Writinging
+        url: https://hut.zhangxiaocai.cn
+        icon: fas fa-pen-alt
+      - name: SmallCloud
+        url: https://yun.zhangxiaocai.cn
+        icon: fas fa-cloud
+      - name: ColorWorld
+        url: /color
+        icon: fas fa-asterisk  
+      - name: SiteStatus
+        url: https://status.zhangxiaocai.cn/
+        icon: fa fa-yin-yang
+        
+ 
   # 二级菜单写法如下
   #Medias:
   #  icon: fas fa-list
@@ -42,10 +74,10 @@ menu:
 # Website start time.
 # 站点运行开始时间.
 time:
-  enable: false
-  year: 2019 # 年份
-  month: 06 # 月份
-  date: 28 # 日期
+  enable: true
+  year: 2020 # 年份
+  month: 05 # 月份
+  date: 01 # 日期
   hour: 00 # 小时
   minute: 00 # 分钟
   second: 00 # 秒
@@ -54,11 +86,11 @@ time:
 # 首页封面轮播图的相关配置.
 cover:
   showPrevNext: true # 是否显示左右切换按钮. Whether to display the left and right toggle buttons.
-  showIndicators: true # 是否显示指示器. # Whether to display the indicators
+  showIndicators: false # 是否显示指示器. # Whether to display the indicators
   autoLoop: true # 是否自动轮播. Whether it is automatically rotated.
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 5000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
-  useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
+  useConfig: true # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
 
 # index page dream text,
@@ -66,9 +98,9 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 我的梦想
-  text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
-
+  title: 理想的自己
+  text1: 洋葱、萝卜和西红柿不相信世界上有南瓜这种东西， 它们认为那是一种空想。 南瓜不说话， 默默地生长。   ——于尔克•舒比格
+  text2: 人的一生， 其实就是一场自己对自己的战争。 每个人的身上，都有两个自己： 好的自己和坏的自己。让积极打败消极，让高尚打败鄙陋，让真诚打败虚伪，让宽容打败计较，让快乐打败忧郁，让勤奋打败懒惰，让坚强打败脆弱。 只要你愿意，完全可以一辈子都做最好的自己。
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
@@ -79,7 +111,7 @@ music:
   autoHide: true    # hide automaticaly
   server: netease   #require	music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    #require song, playlist, album, search, artist
-  id: 503838841     #require	song id / playlist id / album id / search keyword
+  id: 2056253259     #require	song id / playlist id / album id / search keyword
   fixed: true       # 开启吸底模式
   autoplay: false   # 是否自动播放
   theme: '#42b983'
@@ -93,10 +125,10 @@ music:
 # Whether to display the videos.
 # 是否在首页显示视频.
 video:
-  enable: false
+  enable: true
   showTitle: true
   title: 精彩视频
-  url: # 必填
+  url: https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io@master/medias/wl.mp4 # 必填
   pic:
   thumbnails:
   height: # 如：400
@@ -115,31 +147,32 @@ recommend:
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/recommends.json 移动到 my-blog/source/_data/下修改配置即可
 
 # Configure website favicon and LOGO
-# 配置网站favicon和网站LOGO
-favicon: /favicon.png
-logo: /medias/logo.png
+# 配置网站 favicon 和网站LOGO    gt/wl/jz
+favicon: /favicon.ico #favicon.png  ##favicon.png
+logo: /medias/logo-3.png # /medias/logo-1.png # /medias/logo-3.jpg
 
 # The configuration of the second button in the home banner,
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
 # 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
 indexbtn:
   enable: true
-  name: Github
+  name: 阿蓝故事
   icon: fab fa-github-alt
-  url: https://github.com/blinkfox/hexo-theme-matery
+  url: https://blog.zhangxiaocai.cn
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github:  https://github.com/blinkfox
-  email: 1181062873@qq.com
+  github:  https://github.com/small-rose
+  email: small-rose@qq.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
-  qq: 1181062873
+  qq: 970175021
   weibo: # https://weibo.com/xxx
-  zhihu: # https://www.zhihu.com/xxx
-  rss: true # true、false
+  zhihu: https://stackoverflow.com/users/5063539/small-rose
+  rss: false # true、false
+  cloud: true
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
 # You can add `toc: false` to the Front-matter of a post to turn off the TOC.
@@ -156,20 +189,20 @@ code:
   lang: true # 代码块是否显示名称
   copy: true # 代码块是否可复制
   shrink: true # 代码块是否可以收缩
-  break: false # 代码是否折行
+  break: true # 代码是否折行
 
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
 reward:
   enable: true
   title: 你的赏识是我前进的动力
-  wechat: /medias/reward/wechat.png
+  wechat: /medias/reward/wechat.jpg
   alipay: /medias/reward/alipay.jpg
 
 # Whether to activate the copyright information of the blog and author when copying the post content.
 # minCharNumber: Approve copyright information by copying at least how many characters.
 # 是否激活复制文章时追加博客和作者的版权信息.
 copyright:
-  enable: false
+  enable: true
   minCharNumber: 120 # 至少复制多少个字符就追加版权信息.
   description: 本文章著作权归作者所有，任何形式的转载都请注明出处。
 
@@ -180,7 +213,7 @@ copyright:
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
 mathjax:
   enable: false
-  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: # https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # Post word count, reading duration, site total word count.
 # Before you activate, please confirm that you have installed the hexo-wordcount plugin,
@@ -189,11 +222,11 @@ mathjax:
 # 文章信息--若要开启文章字数统计，需要安装 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
 postInfo:
   date: true # 发布日期
-  update: false # 更新日期
-  wordCount: false # 文章字数统计
-  totalCount: false # 站点总文章字数
-  min2read: false # 文章阅读时长
-  readCount: false # 文章阅读次数
+  update: true # 更新日期
+  wordCount: true # 文章字数统计
+  totalCount: true # 站点总文章字数
+  min2read: true # 文章阅读时长
+  readCount: true # 文章阅读次数
 
 # Whether to activate the 'love' effect of clicking on the page.
 # 是否激活点击页面的'爱心'效果，默认激活.
@@ -204,8 +237,8 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Software Engineer
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
+  career: 软件工程师
+  introduction: “道虽迩，不行不至；事虽小，不为不成。”
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -213,22 +246,26 @@ profile:
 myProjects:
   enable: true
   data:
-    hexo-theme-matery:
+    Grabpic:
       icon: fas fa-file-alt
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
-      url: http://github.com/blinkfox/hexo-theme-matery
-      desc: This is a Hexo blog theme with 'Material Design' and responsive design.
-    Fenix:
+      url: https://github.com/small-rose/Grabpic
+      desc: '一套可以自定义筛选节点批量爬图系统'
+    Zhblog:
         icon: fas fa-database
         iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/fenix
-        desc: 这是 Spring Data JPA 复杂或动态 SQL 查询的扩展库。
-    typora-vue-theme:
+        url: https://github.com/small-rose/zhblog
+        desc: 基于 Spring Boot 开发的个人博客系统    
+    JavaPractice:
         icon: fas fa-file-alt
         iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: This is a typora theme inspired by Vue document style.
-
+        url: https://github.com/small-rose/JavaPractice
+        desc: 个人学习 JAVA 常见Demo库 [快速入口]
+    limit-checked-starter: 
+       icon: fa fa-java
+       iconBackground: 'linear-gradient(to bottom right, #F00 0%, #F99 100%)'
+       url: https://github.com/small-rose/limit-checked-starter
+       desc: Restful API接口限制访问的springboot-starter组件
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
@@ -237,19 +274,19 @@ mySkills:
   data:
     Java:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
-      percent: 85%
+      percent: 80%
     JavaScript:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 80%
+      percent: 75%
     HTML5:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
     CSS:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
-      percent: 70%
+      percent: 88%
     SQL:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 90%
+      percent: 80%
     程序设计:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
       percent: 75%
@@ -260,24 +297,44 @@ mySkills:
 myGallery:
   enable: true
   data:
-    - /medias/featureimages/0.jpg
-    - /medias/featureimages/1.jpg
-    - /medias/featureimages/2.jpg
+    - /medias/photos/0.jpg
+    - /medias/photos/1.jpg
+    - /medias/photos/2.jpg
+    - /medias/photos/3.jpg
+    - /medias/photos/4.jpg
+    - /medias/photos/5.jpg
+    - /medias/photos/6.jpg
+    - /medias/photos/7.jpg
+    - /medias/photos/8.jpg
+    - /medias/photos/9.jpg
+    - /medias/photos/10.jpg
+    - /medias/photos/11.jpg
+
+mytalk:
+  enable: true
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
+archive:
+  timeLine: false # 归档页面 是否显示时间线
+  postList: true # 归档页面 是否显示列表
 
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
-  admin:
+  enable: true
+  post: false
+  owner: small-rose
+  repo: small-rose.github.io
+  oauth:   ##  zhangxiaocai.cn oauth:
+    clientId: c4b13546843299882555
+    clientSecret: 8c2fdb2fba55e11c786191c7920a39ce3246f4b7
+    ##  gitblog oauth:
+    #clientId: 25d0a50a89b8a9328515
+    #clientSecret: 87ad6a6e64a7b5727d9c9f5f049f5a28bf714dcc
+  admin: small-rose
+
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
@@ -300,44 +357,122 @@ disqus:
 livere:
   enable: false
   uid:
-
+#1.3
 # The configuration of the Valine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
 # Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 valine:
-  enable: false
-  appId:
-  appKey:
-  notify: false
-  verify: false
+  enable: true
+  appId: iTxfqh5e9IaRfiiVOTbIWoKa-9Nh9j0Va
+  appKey: C5s5xGFErD1Et90bvbPvNDsB
+  verify: true  # 是否启用防垃圾验证
+  notify: true  # 是否开启邮件提醒(https://valine.js.org/notify.html)
   visitor: true
-  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  avatar: monsterid  # 头像样式(https://valine.js.org/avatar.html) 
   pageSize: 10
-  placeholder: 'just go go' # Comment Box placeholder
-  background: /medias/comment_bg.png
+  placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊！什么？想走？打劫！赶紧提交出你的评论，全部要写好~ ' # Comment Box placeholder
+  background:  /medias/202007bg.webp  # comment_bg.png
+  count: true
+  enableQQ: true
+  recordIP: true
+  requiredFields: 
+    - nick
+    - mail
+  guest_info: 
+    - nick
+    - mail
+    - link
+  master: 
+    - 68c4c9e1b9a3d34317dc6faefe2ea00e # md5加密后的博主邮箱
+  metaPlaceholder:  # 输入框的背景文字
+    nick: 昵称/QQ号(必填)
+    mail: 邮箱(必填)
+    link: 网址(https://)
+  lang: zh-CN
+  tagMeta: # The String Array of Words to show Flag.[Just Only xCss Style mode]
+    - 博主
+    - 小伙伴
+    - 访客
+  friends: # The MD5 String Array of friends Email to show friends Flag.[Just Only xCss Style mode]
+    - 7a455d704b60807098d18cc8c2470da2  # chenyangye 929383024@qq.com
+    - 8acd51671b7e0e1dc68cc76d4d987813  # cuixingjian 崔健 1596422018@qq.com
+    - c08508165c8eba9a77f87285c046d09e  
+    - 901345d4c91ddfd8db0f975bbceaf0c8
+    - 1512958e18378c98b498d5ef8e3e763f
+    - db6069f3bda06d2a9157c4a622ce4648 # 15638524709@163.com
+    - fc2c9b067f65c9e2d7057ba797f7cfca # 黑石 heson525@163.com
+    - 256a83cdeb9a494df572ef260e98c9bf # JAM  gjtw@vip.qq.com
+    - 9f38a40d977e6e8a6a555fef3849f23a # 今生 icefirexg0517@gmail.com
+    - 95dbe659464f10506676f48b11962ef7 # 木子の博客 917880821@qq.com www.mz-zone.cn
+    - 93c72e67b6b84508525f5566b865db2d #金鹏 741143592@qq.com
+
+  emoticonUrl:
+    - https://cdn.jsdelivr.net/npm/alus@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/qq@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest
 
 # The configuration of the MiniValine comment module is not activated by default.
 # To use it, activate the configuration item and set appId and appKey.
 # MiniValine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
 minivaline:
   enable: false
-  appId:  # Your leancloud application appid
-  appKey:  # Your leancloud application appkey
-  placeholder: Write a Comment # Comment box placeholder
-  adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
+  appId:  iTxfqh5e9IaRfiiVOTbIWoKa-9Nh9j0Va # Your leancloud application appid
+  appKey:  C5s5xGFErD1Et90bvbPvNDsB # Your leancloud application appkey
+  placeholder: '打劫！有本事别走，交出你的评论!'  # Comment box placeholder
   math: true # Support MathJax.
   md: true # Support Markdown.
+  enableQQ: true # Enable QQ avatar API.
+  NoRecordIP: true # Do not record commenter IP.
+  visitor: true # Article reading statistics.
+  avatar: monsterid  # 头像样式(https://valine.js.org/avatar.html) 
+  maxNest: 6 # Sub-comment maximum nesting depth.
+  pageSize: 10 # Pagination size.
+  adminEmailMd5: 68c4c9e1b9a3d34317dc6faefe2ea00e # The MD5 of Admin Email to show Admin Flag.[Just Only DesertsP Style mode]
+  background:  /medias/202007bg.webp  # comment_bg.png
+  count: true
+  requiredFields: 
+    - nick
+    - mail
+  guest_info: 
+    - nick
+    - mail
+    - link
+  metaPlaceholder:  # 输入框的背景文字
+    nick: 昵称/QQ号(必填)
+    mail: 邮箱(必填)
+    link: 网址(https://)
+  lang: zh-CN
+  tagMeta: # The String Array of Words to show Flag.[Just Only xCss Style mode]
+    - 博主
+    - 小伙伴
+    - 访客
+  master: # The MD5 String Array of master Email to show master Flag.[Just Only xCss Style mode]
+    - 68c4c9e1b9a3d34317dc6faefe2ea00e
+  friends: # The MD5 String Array of friends Email to show friends Flag.[Just Only xCss Style mode]
+    - 7a455d704b60807098d18cc8c2470da2  # chenyangye
+    - 8acd51671b7e0e1dc68cc76d4d987813  # cuixingjian
+    - c08508165c8eba9a77f87285c046d09e
+    - 901345d4c91ddfd8db0f975bbceaf0c8
+    - 1512958e18378c98b498d5ef8e3e763f
   # MiniValine's display language depends on user's browser or system environment
-  # If you want everyone visiting your site to see a uniform language, you can set a force language value
-  # Available values: en  | zh-CN | (and many more)
-  # More i18n info: https://github.com/MiniValine/minivaline-i18n
-  lang:
+  # Expression Url.
+  # https://github.com/MiniValine/MiniValine/blob/master/.github/FAQ.md#how-to-customize-emoticons
+  emoticonUrl:
+    - https://cdn.jsdelivr.net/npm/alus@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/qq@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest
+    - https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
-  enable: true
-  url: https://github.com/blinkfox/hexo-theme-matery
+  enable: false
+  url: https://stackoverflow.com/users/5063539/small-rose
   title: Fork Me
 
 # The password verification feature of read post. To use this feature,
@@ -367,8 +502,8 @@ googleAnalytics:
 # Add baidu analytics configuration
 # 添加 baidu Analytics 配置
 baiduAnalytics:
-  enable: false
-  id:
+  enable: true
+  id: 90b288cd6d944c8f4f8f0258e60bf981
 
 # 百度搜索资源平台提交链接
 baiduPush: true
@@ -388,6 +523,8 @@ libs:
     gitalk: /libs/gitalk/gitalk.css
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
+    artitalk: /libs/artitalk/artitalk.min.css
+
   js:
     jquery: /libs/jquery/jquery.min.js
     materialize: /libs/materialize/materialize.min.js # 1.0.0
@@ -403,7 +540,7 @@ libs:
     echarts: /libs/echarts/echarts.min.js
     gitalk: /libs/gitalk/gitalk.min.js
     valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
-    minivaline: https://cdn.jsdelivr.net/npm/minivaline/dist/MiniValine.min.js
+    minivaline: /libs/valine_mini/MiniValine.min.js
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
     tocbot: /libs/tocbot/tocbot.min.js
     canvas_nest: /libs/background/canvas-nest.js
@@ -411,6 +548,14 @@ libs:
     ribbonRefresh: /libs/background/ribbon-refresh.min.js
     ribbon_dynamic: /libs/background/ribbon-dynamic.js
     instantpage: /libs/instantpage/instantpage.js
+    funnyTitle: /js/funnyTitle.js
+    sakura: /js/sakura.js
+    xuehua: /js/xuehuapiaoluo.js
+    fullscreen: /js/fullscreen.js
+    botui: /js/botui.js
+    artitalk: /libs/artitalk/artitalk.min.js
+
+
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
@@ -439,6 +584,23 @@ featureImages:
 - /medias/featureimages/21.jpg
 - /medias/featureimages/22.jpg
 - /medias/featureimages/23.jpg
+- /medias/featureimages/24.jpg
+- /medias/featureimages/25.jpg
+- /medias/featureimages/26.jpg
+- /medias/featureimages/27.jpg
+- /medias/featureimages/28.jpg
+- /medias/featureimages/29.jpg
+- /medias/featureimages/30.jpg
+- /medias/featureimages/31.jpg
+- /medias/featureimages/32.jpg
+- /medias/featureimages/33.jpg
+- /medias/featureimages/34.jpg
+- /medias/featureimages/35.jpg
+- /medias/featureimages/36.jpg
+- /medias/featureimages/37.jpg
+- /medias/featureimages/38.jpg
+- /medias/featureimages/39.jpg
+- /medias/featureimages/40.jpg
 
 # default configs that the default policy for every articles/posts
 # default 配置文章的默认转载规则
@@ -484,11 +646,11 @@ canvas_nest:
 
 # 背景静止彩带.
 ribbon:
-  enable: false
+  enable: true
   size: 150 # 彩带大小, 默认: 90.
   alpha: 0.6 # 彩带透明度 (0 ~ 1), 默认: 0.6.
   zIndex: -1 # 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1.
-  clickChange: false  # 设置是否每次点击都更换彩带.
+  clickChange: true  # 设置是否每次点击都更换彩带.
 
 # 背景动态彩带.
 ribbon_dynamic:
@@ -514,8 +676,9 @@ subtitle:
   startDelay: 300 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: 从来没有真正的绝境, 只有心灵的迷途
-  sub2: Never really desperate, only the lost of the soul
+  sub1: 路行虽远，恒则必至，事情虽小，不做不成。
+  sub2: 骐骥一跃，不能十步；驽马十驾，功在不舍。
+  sub3: 平日不事因缘果，山崩来时罪难逃。
 
 # 手机二级菜单.
 navMenu:
@@ -526,6 +689,22 @@ navMenu:
 instantpage:
   enable: true
 
+# 趣味title
+funnyTitle:
+  enable: false
+
+# 樱花 特效
+sakura:
+  enable: true
+
+# 雪花 特效
+xuehua:
+  enable: false  
+
+# 全屏 特效
+fullscreen:
+  enable: true  
+
 # banner 是否每日切换.
 # 若为 false, 则 banner 默认为 /medias/banner/0.jpg
 banner:
@@ -533,9 +712,9 @@ banner:
 
 #ICP备案信息尾部显示
 icp:
-  enable: false
-  url: # 备案链接
-  text: # 备案信息
+  enable: true
+  url: http://beian.miit.gov.cn/ # 备案链接
+  text: 鄂ICP备19015637号-1  # 备案信息
 
 # CDN访问加速 
 # 第一次使用本功能，一定要先配置url，再`hexo cl && hexo g && hexo d`部署到GitHub的仓库，注意！必须是GitHub的仓库！
@@ -546,4 +725,39 @@ icp:
 # 注：配置了此项，就代表着本地调试的时候，网站依然会去GitHub请求资源（原来的资源），本地调试的时候记得将 此项配置 注释或者删除掉
 # 更多关于访问速度优化，请查看：https://blog.sky03.cn/posts/42790.html
 jsDelivr:
-  url: # https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io
+  url: https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io #@master
+
+
+live2d:
+  enable: false
+  post: false
+
+travellings:
+  enable: false  
+
+category:
+  list: 15  
+
+loadingPages:
+  enable: true  
+
+artitalk: 
+  enable: false
+  appId: yRchpF9fKNHNCpf9zXbqD9MU-9Nh9j0Va
+  appKey: H1Gwd3LP5BJ184MG9Fv1LQLn
+  serverURL: http://talk.zhangxiaocai.cn  #leancloud绑定的安全域名，使用国际版的话不需要填写
+  lang: zh # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
+  pageSize: 10  #每页说说的显示数量
+  # shuoPla: #在编辑说说的输入框中的占位符
+  avatarPla: https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/medias/avatar.jpg #自定义头像url的输入框的占位符
+  # motion: #加载动画的开关，1为开，0为关，默认为开
+  # bgImg: #说说输入框背景图片url
+  color1: linear-gradient(45deg, rgb(109, 208, 242) 15%, rgb(245, 154, 190) 85%)  #说说背景颜色1&按钮颜色1
+  color2: linear-gradient(45deg, rgb(109, 208, 242) 15%, rgb(245, 154, 190) 85%)  #说说背景颜色2&按钮颜色2
+  color3: black #说说字体颜色
+  # cssUrl: #自定义css接口
+
+titleName: 
+  enable: true
+  shuoshuo: 实用便笺
+  color: 红飞翠舞

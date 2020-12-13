@@ -5,13 +5,14 @@
         margin-bottom: 30px;
     }
 
+    /*
     .friends-container .tag-title {
         margin-bottom: 10px;
         color: #3C4858;
         font-size: 1.75rem;
         font-weight: 400;
     }
-
+*/
     .frind-ship img {
         border-radius: 50%;
     }
@@ -37,13 +38,19 @@
         height: 100px;
         flex-shrink: 0;
     }
-
+    
     .frind-ship .title h1 {
         padding-bottom: 5px;
         border-bottom: 2px solid #fff;
         position: relative;
         top:-15px;
         left: 3px;
+    }
+
+    .frind-ship .title h1{
+        line-height: 0.8rem;
+        padding-bottom:16px;
+        border-bottom:2px solid #fff
     }
 
     .friend-button {
@@ -186,6 +193,12 @@
     article .card {
         overflow: visible !important;
     }
+    .friend-introduction{
+        min-height: 3rem;
+        position: relative;
+        top: -30px;
+    }
+ 
 </style>
 
 <main class="content">
@@ -208,7 +221,7 @@
                                         <img src="<%- url_for(friend.avatar) %>" alt="img">
                                         <div>
                                             <h1 class="friend-name"><%= friend.name %></h1>
-                                            <p style="position: relative;top: -35px;"><%= friend.introduction %></p>
+                                            <p  class="friend-introduction"><%= friend.introduction %></p>
                                         </div>
                                     </div>
                                     <div class="friend-button">
@@ -226,34 +239,14 @@
                 </article>
             </div>
         </div>
+
+        
         <div class="card">
             <div class="card-content">
                 <%- page.content %>
             </div>
         </div>
-        <div class="card">
-
-            <% if (theme.gitalk && theme.gitalk.enable) { %>
-            <%- partial('_partial/gitalk') %>
-            <% } %>
-
-            <% if (theme.gitment.enable) { %>
-            <%- partial('_partial/gitment') %>
-            <% } %>
-
-            <% if (theme.disqus.enable) { %>
-            <%- partial('_partial/disqus') %>
-            <% } %>
-
-            <% if (theme.livere && theme.livere.enable) { %>
-            <%- partial('_partial/livere') %>
-            <% } %>
-
-            <% if (theme.valine && theme.valine.enable) { %>
-            <%- partial('_partial/valine') %>
-            <% } %>
-
-        </div>
+       
     </div>
 </main>
 
